@@ -16,13 +16,13 @@ jobs:
       - name: Step two
         run: "Get-Date -Format G"
   job3:
-    name: First job
+    name: Third job
     runs-on: macos-latest
     steps:
       - name: Step two
         run: date +%F
   job4:
-    name: First job
+    name: Fourth job
     needs: [job1, job2, job3]
     runs-on: ubuntu-latest
     steps:
