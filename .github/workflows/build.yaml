@@ -22,7 +22,7 @@ jobs:
           path: ./webapp
 
       - name: Setup Java 9
-        uses: actions/setup-java@1
+        uses: actions/setup-java@v1
         with:
           java-version: '9.0.4'
           java-package: jdk
