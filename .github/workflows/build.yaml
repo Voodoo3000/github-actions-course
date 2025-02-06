@@ -1,0 +1,40 @@
+name: build
+
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout parameter file
+        uses: actions/checkout@v3
+
+      - name: List project files and java version
+        run: | 
+            ls -ltr
+            java -version
+
+      - name: Check out web application
+        uses: actions/checkout@v3
+        with:
+          repository: Voodoo3000/Truly_News_First_Task
+          ref: master
+          path: ./webapp
+
+      - name: Setup Java 9
+        uses: actions/setup-java@1
+        with:
+          java-version: '9.0.4'
+          java-package: jdk
+          architecture: x64
+
+      - name: List project files and java version
+        run: |
+          ls -ltr
+          java -version
+
+      - name: Copy param file into webapp folder
+        run: cp -v parameter-file.txt ./webapp
+
+      - name: Check param file
+        run: cat ./webapp/parameter-file.txt
